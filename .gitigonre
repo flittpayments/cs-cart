@@ -1,0 +1,19 @@
+# IDE / system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Composer
+/vendor/
+composer.lock
+
+# Node/npm
+/node_modules/
+package-lock.json
+
+# Logs
+*.log
+
+# Environment
+.env

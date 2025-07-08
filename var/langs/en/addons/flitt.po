@@ -1,0 +1,58 @@
+msgid ""
+msgstr "Project-Id-Version: tygh\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: English\n"
+"Language: en_US"
+
+msgctxt "Addons::name::flitt"
+msgid "Flitt"
+msgstr "Flitt Payment Provider"
+
+msgctxt "Addons::description::flitt"
+msgid "Flitt description"
+msgstr "Easily accept online payments, increase business revenue, and provide the best payment experience for your customers."
+
+msgctxt "Languages::flitt.merchant_id"
+msgid "Merchant ID"
+msgstr "Merchant ID"
+
+msgctxt "Languages::flitt.password"
+msgid "Password"
+msgstr "Password"
+
+msgctxt "Languages::flitt.language"
+msgid "Language"
+msgstr "Language"
+
+msgctxt "Languages::flitt.currency"
+msgid "Currency"
+msgstr "Currency"
+
+msgctxt "Languages::flitt.payment_type"
+msgid "Payment type"
+msgstr "Payment type"
+
+msgctxt "Languages::flitt.transaction_method"
+msgid "Transaction method"
+msgstr "Transaction method"
+
+msgctxt "Languages::flitt.test_mode"
+msgid "Test mode"
+msgstr "Test mode"
+
+msgctxt "Languages::Hold"
+msgid "Hold"
+msgstr "Hold"
+
+msgctxt "Languages::Redirect to Flitt"
+msgid "Redirect to Flitt"
+msgstr "Redirect to Flitt"
+
+msgctxt "Languages::flitt.status_hold"
+msgid "Order status with hold funds"
+msgstr "Order status with hold funds"
+
+msgctxt "Languages::flitt.paid_order_status"
+msgid "Paid order status"
+msgstr "Paid order status"
+

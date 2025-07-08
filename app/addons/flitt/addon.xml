@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<addon scheme="3.0" edition_type="ROOT,ULT:VENDOR">
+    <id>flitt</id>
+    <name>Flitt Payment Provider</name>
+    <copyright>flitt.com</copyright>
+    <authorEmail>dmmatrix222@gmail.com</authorEmail>
+    <version>1.0.2</version>
+    <description>flitt.com (VISA, MasterCard, и др.)</description>
+    <priority>1</priority>
+    <status>active</status>
+    <dependencies></dependencies>
+    <functions>
+        <item for="install">fn_flitt_install</item>
+        <item for="uninstall">fn_flitt_uninstall</item>
+    </functions>
+</addon>
