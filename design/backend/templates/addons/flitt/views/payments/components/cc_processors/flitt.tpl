@@ -42,8 +42,8 @@
     <label class="control-label" for="payment_type">{__("flitt.payment_type")}</label>
     <div class="controls">
         <select name="payment_data[processor_params][payment_type]" id="payment_type">
-            <option value="redirect"{if $processor_params.payment_type == "redirect"} selected="selected"{/if}>{__("Redirect to Flitt")}</option>
-            {*            <option value="sale"{if $processor_params.payment_type == "sale"} selected="selected"{/if}>{__("Sale")}</option>*}
+            <option value="redirect"{if $processor_params.payment_type == "redirect"} selected="selected"{/if}>{__("flitt.redirect_to_flitt")}</option>
+            {*            <option value="sale"{if $processor_params.payment_type == "sale"} selected="selected"{/if}>{__("flitt.sale")}</option>*}
         </select>
     </div>
 </div>
@@ -52,8 +52,8 @@
     <label class="control-label" for="transaction_method">{__("flitt.transaction_method")}</label>
     <div class="controls">
         <select name="payment_data[processor_params][transaction_method]" id="transaction_method">
-            <option value="sale"{if $processor_params.transaction_method == "sale"} selected="selected"{/if}>{__("Sale")}</option>
-            <option value="hold"{if $processor_params.transaction_method == "hold"} selected="selected"{/if}>{__("Hold")}</option>
+            <option value="sale"{if $processor_params.transaction_method == "sale"} selected="selected"{/if}>{__("flitt.sale")}</option>
+            <option value="hold"{if $processor_params.transaction_method == "hold"} selected="selected"{/if}>{__("flitt.hold")}</option>
         </select>
     </div>
 </div>

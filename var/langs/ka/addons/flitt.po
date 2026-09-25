@@ -1,0 +1,82 @@
+msgid ""
+msgstr "Project-Id-Version: tygh\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: Georgian\n"
+"Language: ka_GE"
+
+msgctxt "Addons::name::flitt"
+msgid "Flitt"
+msgstr "Flitt გადახდის პროვაიდერი"
+
+msgctxt "Addons::description::flitt"
+msgid "Flitt description"
+msgstr "მარტივად მიიღეთ ონლაინ გადახდები, გაზარდეთ ბიზნესის შემოსავალი და შესთავაზეთ მომხმარებლებს საუკეთესო გადახდის გამოცდილება."
+
+msgctxt "Languages::flitt.merchant_id"
+msgid "Merchant ID"
+msgstr "მერჩანტის ID"
+
+msgctxt "Languages::flitt.password"
+msgid "Password"
+msgstr "პაროლი"
+
+msgctxt "Languages::flitt.language"
+msgid "Language"
+msgstr "ენა"
+
+msgctxt "Languages::flitt.currency"
+msgid "Currency"
+msgstr "ვალუტა"
+
+msgctxt "Languages::flitt.payment_type"
+msgid "Payment type"
+msgstr "გადახდის ტიპი"
+
+msgctxt "Languages::flitt.transaction_method"
+msgid "Transaction method"
+msgstr "ტრანზაქციის მეთოდი"
+
+msgctxt "Languages::flitt.test_mode"
+msgid "Test mode"
+msgstr "სატესტო რეჟიმი"
+
+msgctxt "Languages::flitt.status_hold"
+msgid "Order status with hold funds"
+msgstr "შეკვეთის სტატუსი დაბლოკილი თანხით"
+
+msgctxt "Languages::flitt.paid_order_status"
+msgid "Paid order status"
+msgstr "გადახდილი შეკვეთის სტატუსი"
+
+msgctxt "Languages::flitt.send_payment_link"
+msgid "Send payment link"
+msgstr "გადახდის ბმულის გაგზავნა"
+
+msgctxt "Languages::flitt.payment_processing"
+msgid "Your payment is being processed. The order status will be updated as soon as Flitt confirms the payment."
+msgstr "თქვენი გადახდა მუშავდება. შეკვეთის სტატუსი განახლდება, როგორც კი Flitt დაადასტურებს გადახდას."
+
+msgctxt "Languages::flitt.payment_creation_failed"
+msgid "Unable to create a Flitt payment: [message]"
+msgstr "Flitt-ის გადახდის შექმნა ვერ მოხერხდა: [message]"
+
+msgctxt "Languages::flitt.capture_failed"
+msgid "Flitt was unable to capture the held funds: [message]"
+msgstr "Flitt-მა ვერ ჩამოჭრა დაბლოკილი თანხა: [message]"
+
+msgctxt "Languages::flitt.order_not_found"
+msgid "The order was not found or is not paid with Flitt."
+msgstr "შეკვეთა ვერ მოიძებნა ან არ არის გადახდილი Flitt-ით."
+
+msgctxt "Languages::flitt.sale"
+msgid "Sale"
+msgstr "გაყიდვა"
+
+msgctxt "Languages::flitt.hold"
+msgid "Hold"
+msgstr "თანხის დაბლოკვა"
+
+msgctxt "Languages::flitt.redirect_to_flitt"
+msgid "Redirect to Flitt"
+msgstr "გადამისამართება Flitt-ზე"
+

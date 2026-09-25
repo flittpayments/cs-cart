@@ -5,5 +5,6 @@ if (!defined('BOOTSTRAP')) {
 }
 
 fn_register_hooks(
-    'change_order_status'
+    'change_order_status',
+    'set_notification_pre'
 );

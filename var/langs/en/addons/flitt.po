@@ -40,14 +40,6 @@ msgctxt "Languages::flitt.test_mode"
 msgid "Test mode"
 msgstr "Test mode"
 
-msgctxt "Languages::Hold"
-msgid "Hold"
-msgstr "Hold"
-
-msgctxt "Languages::Redirect to Flitt"
-msgid "Redirect to Flitt"
-msgstr "Redirect to Flitt"
-
 msgctxt "Languages::flitt.status_hold"
 msgid "Order status with hold funds"
 msgstr "Order status with hold funds"
@@ -55,4 +47,36 @@ msgstr "Order status with hold funds"
 msgctxt "Languages::flitt.paid_order_status"
 msgid "Paid order status"
 msgstr "Paid order status"
+
+msgctxt "Languages::flitt.send_payment_link"
+msgid "Send payment link"
+msgstr "Send payment link"
+
+msgctxt "Languages::flitt.payment_processing"
+msgid "Your payment is being processed. The order status will be updated as soon as Flitt confirms the payment."
+msgstr "Your payment is being processed. The order status will be updated as soon as Flitt confirms the payment."
+
+msgctxt "Languages::flitt.payment_creation_failed"
+msgid "Unable to create a Flitt payment: [message]"
+msgstr "Unable to create a Flitt payment: [message]"
+
+msgctxt "Languages::flitt.capture_failed"
+msgid "Flitt was unable to capture the held funds: [message]"
+msgstr "Flitt was unable to capture the held funds: [message]"
+
+msgctxt "Languages::flitt.order_not_found"
+msgid "The order was not found or is not paid with Flitt."
+msgstr "The order was not found or is not paid with Flitt."
+
+msgctxt "Languages::flitt.sale"
+msgid "Sale"
+msgstr "Sale"
+
+msgctxt "Languages::flitt.hold"
+msgid "Hold"
+msgstr "Hold"
+
+msgctxt "Languages::flitt.redirect_to_flitt"
+msgid "Redirect to Flitt"
+msgstr "Redirect to Flitt"
 

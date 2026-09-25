@@ -17,3 +17,6 @@ package-lock.json
 
 # Environment
 .env
+# Build artifacts and CS-Cart distributions
+*.zip
+dist/

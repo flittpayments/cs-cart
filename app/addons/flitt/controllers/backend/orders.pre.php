@@ -8,80 +8,56 @@ if (!defined('BOOTSTRAP')) {
 
 if ($mode == 'details') {
 
-    $_REQUEST['order_id'] = empty($_REQUEST['order_id']) ? 0 : $_REQUEST['order_id'];
+    $order_id = empty($_REQUEST['order_id']) ? 0 : (int) $_REQUEST['order_id'];
 
-    $order_info = fn_get_order_info($_REQUEST['order_id'], false, true, true, false);
-    $response = [];
+    $order_info = fn_get_order_info($order_id, false, true, true, false);
+    $processor_data = $order_info ? fn_flitt_get_order_processor_data($order_info) : false;
 
-    if (isset($_REQUEST['send']) && $_REQUEST['send'] == 1 && $order_info['status'] == 'O' && $order_info['payment_method']['processor'] == 'Flitt') {
+    if (!$processor_data) {
+        return array(CONTROLLER_STATUS_OK);
+    }
 
-        if (empty($processor_data) && !empty($order_info)) {
-            $processor_data = fn_get_processor_data($order_info['payment_id']);
-        }
+    $response = array();
 
-        $currency_f = CART_SECONDARY_CURRENCY;
-        if ($processor_data['processor_params']['currency'] == 'shop_cur') {
-            $amount = fn_format_price_by_currency($order_info['total']);
-        } else {
-            $amount = fn_format_price($order_info['total'], $processor_data['processor_params']['currency']);
-            $currency_f = $processor_data['processor_params']['currency'];
-        }
+    if (!empty($_REQUEST['send']) && $order_info['status'] == 'O') {
 
-        if (!isset($order_info['payment_info']['payment_link'])) {
-            $payment_data = array(
-                'order_id' => $order_info['timestamp'] . '_' . $order_info['order_id'],
-                'merchant_id' => $processor_data['processor_params']['merchant_id'],
-                'order_desc' => '#' . $order_info['order_id'],
-                'amount' => round($amount * 100),
-                'currency' => $currency_f,
-                'response_url' => fn_url('index.php?dispatch=payment_notification.ok&payment=flitt&order_id=' . $order_info['order_id']),
-                'server_callback_url' => fn_url('index.php?dispatch=payment_notification.ok&payment=flitt&order_id=' . $order_info['order_id']),
-                'lang' => $processor_data['processor_params']['language'],
-                'sender_email' => $order_info['email'],
-            );
+        // A new payment attempt every time: Flitt payment pages expire, and Flitt rejects a repeated order ID.
+        $payment_data = fn_flitt_build_checkout_request($order_info, $processor_data);
 
-            if ($processor_data['processor_params']['transaction_method'] == 'hold') {
-                $payment_data['preauth'] = 'Y';
-            }
+        $flitt = new Flitt();
+        $response = $flitt->generateFlittUrl($payment_data);
 
-            $flitt = new Flitt();
-            $payment_data['signature'] = $flitt->getSignature($payment_data, $processor_data['processor_params']['password']);
-            $response = $flitt->generateFlittUrl($payment_data);
-
-            if ($response['result'] == true) {
-                fn_update_order_payment_info($order_info['order_id'], ['payment_link' => $response['url']]);
-            } else {
-                fn_update_order_payment_info($order_info['order_id'], ['error' => $response['message']]);
-            }
-        }
-        if (isset($response['url'])) {
+        if ($response['result'] == true) {
+            fn_flitt_register_attempt($order_info['order_id'], $payment_data, array('payment_link' => $response['url']));
             $url = $response['url'];
-        } elseif (isset($order_info['payment_info']['payment_link'])) {
-            $url = $order_info['payment_info']['payment_link'];
         } else {
+            fn_update_order_payment_info($order_info['order_id'], array('error' => $response['message']));
+            fn_set_notification('E', __('error'), __('flitt.payment_creation_failed', array('[message]' => $response['message'])));
             $url = false;
         }
-        $data = array(
-            'payment_link' => $url,
-            'email_subj' => "Invoice #" . $order_info['order_id']
-        );
+
         if ($url) {
             /** @var Tygh\Mailer\Mailer $mailer */
             $mailer = Tygh::$app['mailer'];
 
-            $data = $mailer->send(array(
+            $mailer->send(array(
                 'to' => $order_info['email'],
                 'from' => 'default_company_orders_department',
-                'data' => $data,
+                'data' => array(
+                    'payment_link' => $url,
+                    'email_subj' => __('invoice') . ' #' . $order_info['order_id'],
+                ),
                 'tpl' => 'addons/flitt/send_payment_link.tpl',
-                'is_html' => true
+                'is_html' => true,
+                'company_id' => $order_info['company_id'],
             ), 'A');
         }
-        fn_redirect('/admin.php?dispatch=orders.details&order_id=' . $_REQUEST['order_id']);
-        exit();
+
+        return array(CONTROLLER_STATUS_REDIRECT, 'orders.details?order_id=' . $order_id);
     }
+
     if (!isset($order_info['payment_info']['payment_id'])) {
-        Tygh::$app['view']->assign('sendLink', '/admin.php?dispatch=orders.details&send=1&order_id=' . $_REQUEST['order_id']);
+        Tygh::$app['view']->assign('sendLink', fn_url('orders.details?send=1&order_id=' . $order_id));
         Tygh::$app['view']->assign('error', $response);
     }
 }

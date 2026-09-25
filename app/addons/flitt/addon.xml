@@ -3,11 +3,18 @@
     <id>flitt</id>
     <name>Flitt Payment Provider</name>
     <copyright>flitt.com</copyright>
-    <authorEmail>dmmatrix222@gmail.com</authorEmail>
-    <version>1.0.2</version>
-    <description>flitt.com (VISA, MasterCard, и др.)</description>
+    <authorEmail>support@flitt.com</authorEmail>
+    <version>1.1.0</version>
+    <description>Accept card payments (Visa, Mastercard and more) via Flitt</description>
     <priority>1</priority>
     <status>active</status>
+    <supplier>Flitt</supplier>
+    <supplier_link>https://flitt.com</supplier_link>
+    <compatibility>
+        <php_version>
+            <min>7.4.0</min>
+        </php_version>
+    </compatibility>
     <dependencies></dependencies>
     <functions>
         <item for="install">fn_flitt_install</item>
